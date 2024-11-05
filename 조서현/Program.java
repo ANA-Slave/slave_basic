@@ -11,7 +11,11 @@ public class Program {
         var cars = Arrays.stream(input.readLine().split(",")).map(RacingCar::new).toList();
 
         System.out.println("시도할 회수는 몇 회인가요?");
-        var tries = Integer.parseInt(input.readLine());
+        var line = input.readLine();
+        if (!line.chars().allMatch(Character::isDigit) || line.isBlank() || line.startsWith("-") || line.length() > 9) {
+            throw new IllegalArgumentException("올바른 숫자를 입력해주세요.");
+        }
+        var tries = Integer.parseInt(line);
 
         System.out.println("실행 결과");
         for (int i = 0; i < tries; i++) {

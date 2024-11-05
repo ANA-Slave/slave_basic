@@ -2,6 +2,10 @@ import java.util.Random;
 
 public class RacingCar {
     public RacingCar(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
+        }
+
         this.name = name;
         this.position = 0;
         this.rng = new Random();
