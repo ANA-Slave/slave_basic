@@ -55,6 +55,10 @@ public class RacingCar {
 
         Car[] car_list = new Car[data.length];
         for (int i=0; i<data.length; i++) {
+            if (data[i].length() > 5) {
+                sc.close();
+                throw new IllegalArgumentException("Too Long Name argument");
+            }
             car_list[i] = new Car(data[i]);
         }
 
@@ -62,6 +66,10 @@ public class RacingCar {
         int trial;
         try {
             trial = sc.nextInt();
+            if (trial < 0) {
+                sc.close();
+                throw new IllegalArgumentException("Minus Move Chance");
+            }
         } catch (InputMismatchException e) {
             sc.close();
             throw new IllegalArgumentException("Invalid argument");
