@@ -1,4 +1,4 @@
-class Car {
+public class Car {
     private final String name;
     private int distance = 0;
 
@@ -12,10 +12,6 @@ class Car {
 
     public int getDistance() {
         return distance;
-    }
-
-    public String getPosition() {
-        return "—".repeat(distance);
     }
 
     public void move(int randomValue) {
